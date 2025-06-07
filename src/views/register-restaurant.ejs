@@ -1,0 +1,138 @@
+// File: src/views/register-restaurant.ejs
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Your Restaurant | Kamchop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #1f1f1f, #3d2d2d);
+      color: #fff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #ffa94d;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      animation: fadeInDown 0.6s ease-in-out;
+    }
+
+    form {
+      background-color: #2a2a2a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 600px;
+      animation: fadeInUp 0.6s ease-in-out;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      background-color: #ff7a00;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff8c1a;
+    }
+
+    .extra-content {
+      margin-top: 3rem;
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .extra-content p {
+      margin-bottom: 1rem;
+      color: #ddd;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Register Your Restaurant</h1>
+  <form action="/owner/register" method="POST">
+    <label for="name">Restaurant Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" placeholder="City or Area" />
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" placeholder="Tell us what kind of meals you offer..."></textarea>
+
+    <label for="contact">Contact Info</label>
+    <input type="text" id="contact" name="contact" placeholder="Phone or Email" />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="extra-content">
+    <p>Stand out on Kamchop by telling food lovers what makes your kitchen unique. Fresh ingredients? Grandma's recipes? Let them know!</p>
+    <p>We're here to help you grow — one delicious plate at a time.</p>
+  </div>
+</body>
+</html>

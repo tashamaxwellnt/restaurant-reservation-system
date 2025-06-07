@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Kamchop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fff8f0, #ffe0cc);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-container {
+      width: 90%;
+      max-width: 900px;
+      height: 600px;
+      display: flex;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .auth-left,
+    .auth-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .auth-left .circle {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .auth-right .circle {
+      background-color: rgba(230, 126, 34, 0.07);
+    }
+
+    .circle.one {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+    }
+
+    .circle.two {
+      width: 150px;
+      height: 150px;
+      bottom: 10%;
+      right: 15%;
+    }
+
+    .auth-left {
+      background-color: #e67e22;
+      color: #fff;
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .auth-left h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    .auth-left p {
+      font-size: 1.1rem;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .auth-right {
+      background-color: #fff;
+      flex: 1;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-right h2 {
+      margin-bottom: 1.5rem;
+      color: #e67e22;
+      font-size: 2rem;
+      z-index: 1;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d35400;
+    }
+
+    .switch {
+      margin-top: 1rem;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .switch a {
+      color: #e67e22;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="circle one"></div>
+      <div class="circle two"></div>
+      <h1>Kamchop</h1>
+      <p>Premium food reservations and restaurant management. Sign up to begin your journey with us.</p>
+    </div>
+    <div class="auth-right">
+      <div class="circle one"></div>
+      <div class="circle two"></div>
+      <h2>Login to your account</h2>
+      <form action="/auth/login" method="POST">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <div class="switch">
+        Don't have an account? <a href="/signup">Signup</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -98,5 +98,25 @@ exports.getActiveReservationsByRestaurant = async (req, res) => {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
-  };
+};
+
+exports.markAsdone = async (req, res) => {
+  try {
+    const { resId } = req.params
+    const reservation = await Reservation.findById(resId)
+    const table = await Table.findById(reservation.tableId)
+
+    if(!reservation || reservation.status === 'done'){ 
+      return res.status(404).json({message: 'Reservation does mot exist or is done already'})
+    }
+    reservation.status = 'done'
+    await reservation.save()
+    table.status = 'available'
+    await table.save()
+
+    res.json(reservation)
+  }catch(err) {
+    res.status(500).json({ error: err.message });
+  }
+}
   
